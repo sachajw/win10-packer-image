@@ -79,5 +79,5 @@ packer fmt win10.pkr.hcl
 packer build -force win10.pkr.hcl
 ```
 
-#### Autounattend.xml
+#### autounattend.xml
 - Windows auto configuration file
