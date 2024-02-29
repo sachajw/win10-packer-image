@@ -33,17 +33,15 @@ source "virtualbox-iso" "win10" {
   headless             = false
   iso_url              = "image/win10.iso"
   iso_checksum         = "af8d0e9efd3ef482d0ab365766e191e420777b2b"
-  output_directory     = "win11"
+  output_directory     = "win10"
   shutdown_command     = "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\""
-  vm_name              = "win11"
+  vm_name              = "win10"
   winrm_password       = "vagrant"
   winrm_timeout        = "6h"
   winrm_username       = "vagrant"
 }
 
 build {
-  #sources = ["source.virtualbox-iso.win11"],["source.virtualbox-iso.win11arm"]
-  #sources = ["source.virtualbox-iso.win11arm"]
   sources = ["source.virtualbox-iso.win10"]
 
   post-processor "vagrant" {
