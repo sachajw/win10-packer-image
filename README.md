@@ -1,4 +1,4 @@
-# Packer, Vagrant and VirtualBox Windows 10 Image Generation and deployment
+# Packer, Vagrant and VirtualBox Windows 10 Image Generation and Deployment
 
 ## [Hashicorp Packer](https://developer.hashicorp.com/packer)
 - Packer is a tool that lets you create identical machine images for multiple platforms from a single source template
@@ -64,20 +64,20 @@ Provisioning and Automation: Vagrant supports automatic provisioning with tools 
 #### Commands
 - Initialise a Packer project
 ```
-packer init win10.pkr.hcl
+packer init win11.pkr.hcl
 ```
 - Packer validate the HCL2 syntax
 ```
-packer validate win10.pkr.hcl
+packer validate win11.pkr.hcl
 ```
 - Packer format the syntax to keep it tidy
 ```
-packer fmt win10.pkr.hcl
+packer fmt win11.pkr.hcl
 ```
 - Packer build the image
 ```
-packer build -force win10.pkr.hcl
+packer build -force win11.pkr.hcl
 ```
 
-#### autounattend.xml
+#### Autounattend.xml
 - Windows auto configuration file

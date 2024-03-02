@@ -15,7 +15,7 @@ function LogWrite {
 }
 
 function EnableWinRM {
-  if (Test-Path -Path 'E:\Autounattend.xml') {
+  if (Test-Path -Path 'E:\autounattend.xml') {
     & 'E:\enable-winrm.ps1'
   } else {
     & 'A:\enable-winrm.ps1'
