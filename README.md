@@ -64,19 +64,19 @@ virtualbox-iso.virtualbox: Creating CD disk...
 #### Commands
 - Initialise a Packer project
 ```
-packer init win11.pkr.hcl
+packer init win10.pkr.hcl
 ```
 - Packer validate the HCL2 syntax
 ```
-packer validate win11.pkr.hcl
+packer validate win10.pkr.hcl
 ```
 - Packer format the syntax to keep it tidy
 ```
-packer fmt win11.pkr.hcl
+packer fmt win10.pkr.hcl
 ```
 - Packer build the image
 ```
-packer build -force win11.pkr.hcl
+packer build -force win10.pkr.hcl
 ```
 
 #### Vagrant Notes
@@ -92,7 +92,7 @@ vagrant up
 - Windows auto configuration answer file
 
 #### choco-pkgs.ps1
-- Installs Chocolatey Windows Packer Manager
+- Installs Chocolatey Windows Package Manager
 - Installs Git
 - Installs PowerShell 7
 - Installs 7zip
