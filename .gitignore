@@ -20,6 +20,7 @@ crash.log
 *.vdi
 *.wim
 image/*
+*.ovf
 
 # folders
 output*

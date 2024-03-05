@@ -1,5 +1,12 @@
 # Packer, Vagrant and VirtualBox Windows 10 Image Generation and Deployment
 
+- Build 'virtualbox-iso.win10' finished after 1 hour 10 minutes.
+```
+Processor	12th Gen Intel(R) Core(TM) i5-12400F   2.50 GHz
+Installed RAM	32,0 GB (31,9 GB usable)
+System type	64-bit operating system, x64-based processor
+```
+
 ## [Hashicorp Packer](https://developer.hashicorp.com/packer)
 - Packer is a tool that lets you create identical machine images for multiple platforms from a single source template
 - Packer can create golden images to use in image pipelines
@@ -80,7 +87,7 @@ packer build -force win10.pkr.hcl
 ```
 
 #### Vagrant Notes
-- Vagrant Box [here](https://app.vagrantup.com/sachajw/boxes/win11)
+- Vagrant Box [here](https://app.vagrantup.com/sachajw/boxes/win10)
 
 ```
 vagrant up
