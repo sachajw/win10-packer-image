@@ -1,3 +1,5 @@
+Set-ExecutionPolicy Bypass -Force
+
 if (!( Test-Path "C:\Windows\Temp\7z2301-x64.msi")) {
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object System.Net.WebClient).DownloadFile('https://www.7-zip.org/a/7z2301-x64.msi', 'C:\Windows\Temp\7z2301-x64.msi')
 }

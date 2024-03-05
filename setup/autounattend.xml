@@ -124,83 +124,43 @@
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>C:\Windows\SysWOW64\cmd.exe /c powershell -Command
-                        "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force"</CommandLine>
-                    <Description>Set Execution Policy 32 Bit</Description>
+                    <CommandLine>powershell -ExecutionPolicy Bypass -File a:\enable-winrm.ps1</CommandLine>
+                    <Description>Enable WinRM</Description>
                     <Order>2</Order>
-                    <RequiresUserInput>true</RequiresUserInput>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c
-                        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File
-                        e:\fixnetwork.ps1</CommandLine>
-                    <Description>Fix public network</Description>
-                    <Order>3</Order>
-                    <RequiresUserInput>true</RequiresUserInput>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File
-                        e:\disable-winrm.ps1</CommandLine>
-                    <Description>Disable WinRM</Description>
-                    <Order>4</Order>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\reg.exe ADD
                         HKLM\SYSTEM\CurrentControlSet\Control\Power\ /v HibernateFileSizePercent /t
                         REG_DWORD /d 0 /f</CommandLine>
-                    <Order>5</Order>
+                    <Order>3</Order>
                     <Description>Zero Hibernation File</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\reg.exe ADD
                         HKLM\SYSTEM\CurrentControlSet\Control\Power\ /v HibernateEnabled /t
                         REG_DWORD /d 0 /f</CommandLine>
-                    <Order>6</Order>
+                    <Order>4</Order>
                     <Description>Disable Hibernation Mode</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>cmd.exe /c wmic useraccount where "name='vagrant'" set
                         PasswordExpires=FALSE</CommandLine>
-                    <Order>7</Order>
+                    <Order>5</Order>
                     <Description>Disable password expiration for vagrant user</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows
                         NT\CurrentVersion\Winlogon" /v DefaultPassword /t REG_SZ /d "vagrant" /f</CommandLine>
-                    <Order>8</Order>
+                    <Order>6</Order>
                     <Description>Enable AutoLogon</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows
                         NT\CurrentVersion\Winlogon" /v AutoAdminLogon /t REG_SZ /d 1 /f</CommandLine>
-                    <Order>9</Order>
+                    <Order>7</Order>
                     <Description>Enable AutoLogon</Description>
                 </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c
-                        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File
-                        e:\microsoft-updates.ps1</CommandLine>
-                    <Order>98</Order>
-                    <Description>Enable Microsoft Updates</Description>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c
-                        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File
-                        e:\disable-screensaver.ps1</CommandLine>
-                    <Description>Disable Screensaver</Description>
-                    <Order>99</Order>
-                    <RequiresUserInput>true</RequiresUserInput>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c
-                        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File
-                        e:\win-updates.ps1</CommandLine>
-                    <Description>Install Windows Updates</Description>
-                    <Order>100</Order>
-                    <RequiresUserInput>true</RequiresUserInput>
-                </SynchronousCommand>
-                <!-- END WITH WINDOWS UPDATES -->
             </FirstLogonCommands>
             <ShowWindowsLive>false</ShowWindowsLive>
         </component>

@@ -31,6 +31,9 @@
 - Create a folder in the root of the repo called `image`
 - Add the `Windows ISO` in the `image` folder and name it `win11.iso`
 
+#### Vagrant Notes
+- Vagrant Box [here](https://app.vagrantup.com/sachajw/boxes/win10)
+
 ```
 virtualbox-iso.virtualbox: Creating CD disk...
     virtualbox-iso.virtualbox: OSCDIMG 2.54 CD-ROM and DVD-ROM Premastering Utility
