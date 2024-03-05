@@ -59,12 +59,7 @@ build {
   provisioner "powershell" {
     elevated_user     = var.winrm_username
     elevated_password = var.winrm_password
-    scripts           = ["./setup/install-evergreen.ps1"]
-  }
-
-  provisioner "windows-restart" {
-    restart_check_command = "powershell -command \"& {Write-Output 'restarted.'}\""
-    restart_timeout       = "20m"
+    scripts           = ["./setup/disable-screensaver.ps1"]
   }
 
   provisioner "powershell" {
@@ -79,7 +74,6 @@ build {
     filters = [
       "exclude:$_.Title -like '*VMware*'",
       "exclude:$_.Title -like '*Preview*'",
-      "exclude:$_.Title -like '*Defender*'",
       "exclude:$_.InstallationBehavior.CanRequestUserInput",
       "include:$true"
     ]
@@ -88,30 +82,24 @@ build {
 
   provisioner "windows-restart" {
     restart_check_command = "powershell -command \"& {Write-Output 'restarted.'}\""
-    restart_timeout       = "20m"
+    restart_timeout       = "3m"
   }
 
   provisioner "powershell" {
     elevated_user     = var.winrm_username
     elevated_password = var.winrm_password
-    scripts           = ["./setup/choco-pwsh-install.ps1"]
+    scripts           = ["./setup/choco-pkgs.ps1"]
   }
 
   provisioner "windows-restart" {
     restart_check_command = "powershell -command \"& {Write-Output 'restarted.'}\""
-    restart_timeout       = "20m"
+    restart_timeout       = "10m"
   }
 
   provisioner "powershell" {
     elevated_user     = var.winrm_username
     elevated_password = var.winrm_password
     scripts           = ["./setup/fixnetwork.ps1"]
-  }
-
-  provisioner "powershell" {
-    elevated_user     = var.winrm_username
-    elevated_password = var.winrm_password
-    scripts           = ["./setup/disable-screensaver.ps1"]
   }
 
   post-processor "vagrant" {

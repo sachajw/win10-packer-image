@@ -1,4 +1,5 @@
 $ErrorActionPreference = "SilentlyContinue"
+Set-ExecutionPolicy Bypass -Force
 
 # Switch network connection to private mode
 # Required for WinRM firewall rules

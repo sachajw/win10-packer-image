@@ -2,7 +2,6 @@
 # Spin through all the network locations and if they are set to Public, set them to Private
 # For more info, see:
 # http://blogs.msdn.com/b/powershell/archive/2009/04/03/setting-network-location-to-private.aspx
-Set-ExecutionPolicy Bypass -Force
 function Set-NetworkTypeToPrivate {
   [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingPositionalParameters', '')]
   param()

@@ -117,49 +117,50 @@
             </AutoLogon>
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c powershell -Command "Set-ExecutionPolicy
-                        -ExecutionPolicy RemoteSigned -Force"</CommandLine>
-                    <Description>Set Execution Policy 64 Bit</Description>
+                    <CommandLine>powershell.exe -NoProfile -Command "Set-ExecutionPolicy -Scope
+                        'LocalMachine' -ExecutionPolicy 'RemoteSigned' -Force;</CommandLine>
+                    <Description>Set Execution Policy 64-Bit</Description>
                     <Order>1</Order>
-                    <RequiresUserInput>true</RequiresUserInput>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>powershell -ExecutionPolicy Bypass -File a:\enable-winrm.ps1</CommandLine>
-                    <Description>Enable WinRM</Description>
-                    <Order>2</Order>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\reg.exe ADD
                         HKLM\SYSTEM\CurrentControlSet\Control\Power\ /v HibernateFileSizePercent /t
                         REG_DWORD /d 0 /f</CommandLine>
-                    <Order>3</Order>
+                    <Order>2</Order>
                     <Description>Zero Hibernation File</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\reg.exe ADD
                         HKLM\SYSTEM\CurrentControlSet\Control\Power\ /v HibernateEnabled /t
                         REG_DWORD /d 0 /f</CommandLine>
-                    <Order>4</Order>
+                    <Order>3</Order>
                     <Description>Disable Hibernation Mode</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>cmd.exe /c wmic useraccount where "name='vagrant'" set
                         PasswordExpires=FALSE</CommandLine>
-                    <Order>5</Order>
+                    <Order>4</Order>
                     <Description>Disable password expiration for vagrant user</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows
                         NT\CurrentVersion\Winlogon" /v DefaultPassword /t REG_SZ /d "vagrant" /f</CommandLine>
-                    <Order>6</Order>
+                    <Order>5</Order>
                     <Description>Enable AutoLogon</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows
                         NT\CurrentVersion\Winlogon" /v AutoAdminLogon /t REG_SZ /d 1 /f</CommandLine>
-                    <Order>7</Order>
+                    <Order>6</Order>
                     <Description>Enable AutoLogon</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>powershell -ExecutionPolicy Bypass -Force -File
+                        e:\enable-winrm.ps1"</CommandLine>
+                    <Description>Enable WinRM</Description>
+                    <Order>7</Order>
+                    <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
             </FirstLogonCommands>
             <ShowWindowsLive>false</ShowWindowsLive>
@@ -172,7 +173,7 @@
                 <HelpCustomized>false</HelpCustomized>
             </OEMInformation>
             <!-- Rename computer here. -->
-            <ComputerName>vagrant-win11</ComputerName>
+            <ComputerName>vagrant-win10</ComputerName>
             <TimeZone>South African Standard Time</TimeZone>
             <RegisteredOwner />
         </component>
@@ -184,5 +185,5 @@
         </component>
     </settings>
     <cpi:offlineImage xmlns:cpi="urn:schemas-microsoft-com:cpi"
-        cpi:source="catalog:d:/sources/install_windows 7 ENTERPRISE.clg" />
+        cpi:source="catalog:d:/sources/install_windows 10 ENTERPRISE.clg" />
 </unattend>

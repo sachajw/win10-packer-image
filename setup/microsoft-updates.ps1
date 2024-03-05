@@ -1,4 +1,3 @@
-Set-ExecutionPolicy Bypass -Force
 Stop-Service -Name 'wuauserv'
 
 Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update' -Name 'EnableFeaturedSoftware' -Value 1 -Type DWord
