@@ -88,9 +88,19 @@ packer build -force win10.pkr.hcl
 
 #### Vagrant Notes
 - Vagrant Box [here](https://app.vagrantup.com/sachajw/boxes/win10)
+- Vagrant up in the root of the repo will deploy the virtual machine
 
 ```
 vagrant up
+```
+
+- Vagrant file
+
+```
+Vagrant.configure("2") do |config|
+  config.vm.box = "sachajw/win10"
+  config.vm.box_version = "1.0.3"
+end
 ```
 
 ## Setup
